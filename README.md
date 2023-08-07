@@ -32,14 +32,18 @@ The code includes the following functions:
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install ZM code.
  
-''' bash
+'''bash
+
 pip install ZM
+
 '''
 
 ## Usage
 
-''' python
+'''python
+
 from ZM import zernikim
+
 '''
 
 ## Authors
@@ -50,6 +54,7 @@ from ZM import zernikim
 
 In the following examples, you can see the reconstructed images in different orders of Zernike. By calculating the *reconstruction error*, you can choose the best order for reconstruction.
 1. Spiral galaxy image:
+
 ![download](https://github.com/hmddev1/ZM/assets/53661111/3d7a6e46-0591-41c2-9b61-d5e56ab03ead)
 
 
