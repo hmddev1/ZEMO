@@ -79,7 +79,8 @@ In the following examples, you can see the reconstructed images in different ord
 
 1. Face image: (Face: Hossein Safari)
 
-![HS](https://github.com/hmddev1/ZM/assets/53661111/b9afa396-f09c-4cd8-a07f-bf27c69df580|width=10)
+<img src="[https://github.com/favicon.ico](https://github.com/hmddev1/ZM/assets/53661111/b9afa396-f09c-4cd8-a07f-bf27c69df580)" width="48">
+<!-- ![HS](https://github.com/hmddev1/ZM/assets/53661111/b9afa396-f09c-4cd8-a07f-bf27c69df580|width=10) -->
 
 2. Spiral galaxy image:
 
