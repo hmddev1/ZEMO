@@ -1,4 +1,4 @@
-# Zernike Moments - Astronomical and none-astronomical images
+# Zernike Moments - Astronomical and non-astronomical images
 
 This program is prepared based on the code provided by Mr. Christian Wolf, originally written in MATLAB. This code calculates Zernike moments for astronomical and non-astronomical images. Zernike moments are unique due to orthogonality and a complete set of Zernike polynomials. Zernike moments are used in image analysis to characterize the shape and structure of objects. The following articles and their references give a detailed description of the Zernike polynomials and Zernike moments.
 
