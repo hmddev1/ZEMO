@@ -76,23 +76,63 @@ You can see some examples of the ZM Code Usage.
 ## Examples
 
 In the following examples, you can see the reconstructed images in different orders of Zernike. By calculating the *reconstruction error*, you can choose the best order for reconstruction.
+You can use these example images in the **Data** directory.
 
 1. Face image: (Face: Hossein Safari)
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from ZM import zernikim as zm
 
-<img src="[https://github.com/favicon.ico](https://github.com/hmddev1/ZM/assets/53661111/b9afa396-f09c-4cd8-a07f-bf27c69df580)" width="48">
-<!-- ![HS](https://github.com/hmddev1/ZM/assets/53661111/b9afa396-f09c-4cd8-a07f-bf27c69df580|width=10) -->
+img = plt.imread('HS.png')
+m=np.shape(img)
+
+ZBFSTR1=zm.zernike_bf(m[0],10,1)
+ZBFSTR2=zm.zernike_bf(m[0],45,1)
+ZBFSTR3=zm.zernike_bf(m[0],46,1)
+
+Z1=zm.zernike_mom(np.double(img),ZBFSTR1)
+I1=zm.zernike_rec(Z1,251,ZBFSTR1)
+
+Z2=zm.zernike_mom(np.double(img),ZBFSTR2)
+I2=zm.zernike_rec(Z2,251,ZBFSTR2)
+
+Z3=zm.zernike_mom(np.double(img),ZBFSTR3)
+I3=zm.zernike_rec(Z3,251,ZBFSTR3)
+
+fig, axes = plt.subplots(nrows=4, ncols=1,figsize=(6,6))
+plt.subplot(1,4,1)
+plt.imshow(img,  interpolation='nearest',cmap='bone')
+plt.title('Original Image', fontsize=9)
+plt.axis('off')
+plt.subplot(1,4,2)
+plt.imshow(I1, interpolation='nearest',cmap='bone')
+plt.title('$P_{max}=10$', fontsize=9)
+plt.axis('off')
+plt.subplot(1,4,3)
+plt.imshow(I2, interpolation='nearest',cmap='bone')
+plt.title('$P_{max}=45$', fontsize=9)
+plt.axis('off')
+plt.subplot(1,4,4)
+plt.imshow(I3, interpolation='nearest',cmap='bone')
+plt.title('$P_{max}=46$', fontsize=9)
+plt.axis('off')
+plt.savefig("HS.eps",bbox_inches='tight')
+```
+
+![HS](https://github.com/hmddev1/ZM/assets/53661111/b9afa396-f09c-4cd8-a07f-bf27c69df580)
 
 2. Spiral galaxy image:
 
-![Spiral_rec](https://github.com/hmddev1/ZM/assets/53661111/aa3a09fc-503b-4b18-9288-9d7c29e2e1ec|width=10)
+![Spiral_rec](https://github.com/hmddev1/ZM/assets/53661111/aa3a09fc-503b-4b18-9288-9d7c29e2e1ec)
 
 3. Irregular galaxy image:
 
-![Irregular_rec](https://github.com/hmddev1/ZM/assets/53661111/a8942d00-28e3-445d-8f09-de81d5dcc1c3|width=10)
+![Irregular_rec](https://github.com/hmddev1/ZM/assets/53661111/a8942d00-28e3-445d-8f09-de81d5dcc1c3)
 
 4. Elliptical galaxy image:
 
-![Elliptical_rec](https://github.com/hmddev1/ZM/assets/53661111/28268e5a-5518-43d8-ad79-79e023ed55bc|width=10)
+![Elliptical_rec](https://github.com/hmddev1/ZM/assets/53661111/28268e5a-5518-43d8-ad79-79e023ed55bc)
 
 ## Authors
 
