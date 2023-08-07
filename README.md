@@ -11,9 +11,13 @@ This program is prepared based on the code provided by Mr. Christian Wolf, origi
 The code includes the following functions:
 
 *zernike_order_list*: Generates a list of Zernike polynomial orders.
+
 *robust_fact_quot*: Calculates the robust factor quotient between two lists of values.
+
 *zernike_bf*: Generates Zernike basis functions for a given size and order.
+
 *zernike_mom*: Calculates the Zernike moments of an input image using precomputed Zernike basis functions.
+
 *zernike_rec*: Reconstructs an image from Zernike moments(Inverse trasformation).
 
 ### Notes
