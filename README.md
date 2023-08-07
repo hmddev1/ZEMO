@@ -1,6 +1,6 @@
 # Zernike Moments - Astronomical and none-astronomical images
 
-This program is prepared based on the code provided by Mr. Christian Wolf, originally written in MATLAB. This code calculates Zernike moments for astronomical and none_astronomical images. Zernike moments are unique due to orthogonality and a complete set of Zernike polynomials. Zernike moments are used in image analysis to characterize the shape and structure of objects. The following articles and their references give a detailed description of the Zernike polynomials and Zernike moments.
+This program is prepared based on the code provided by Mr. Christian Wolf, originally written in MATLAB. This code calculates Zernike moments for astronomical and non-astronomical images. Zernike moments are unique due to orthogonality and a complete set of Zernike polynomials. Zernike moments are used in image analysis to characterize the shape and structure of objects. The following articles and their references give a detailed description of the Zernike polynomials and Zernike moments.
 
 [Raboonik, A., Safari, H., Alipour, N., & Wheatland, M. S. 2017, ApJ, 834, 11](https://iopscience.iop.org/article/10.3847/1538-4357/834/1/11/meta)
 
@@ -46,9 +46,6 @@ from ZM import zernikim
 
 ```
 
-## Authors
-
-[Hamed Ghaderi](https://github.com/hmddev1), [Nasibe Alipour](https://scholar.google.com/citations?user=PfzZOI0AAAAJ&hl=en), [Pardise Garavand](https://www.linkedin.com/in/pardis-garavand-25b30527b/), [Hosein Safari](https://scholar.google.com/citations?user=nCc1FV8AAAAJ&hl=en)
 
 ## Examples
 
@@ -57,6 +54,9 @@ In the following examples, you can see the reconstructed images in different ord
 
 ![download](https://github.com/hmddev1/ZM/assets/53661111/3d7a6e46-0591-41c2-9b61-d5e56ab03ead)
 
+## Authors
+
+[Hamed Ghaderi](https://github.com/hmddev1), [Nasibe Alipour](https://scholar.google.com/citations?user=PfzZOI0AAAAJ&hl=en), [Pardise Garavand](https://www.linkedin.com/in/pardis-garavand-25b30527b/), [Hosein Safari](https://scholar.google.com/citations?user=nCc1FV8AAAAJ&hl=en)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
