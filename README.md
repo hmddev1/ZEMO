@@ -34,29 +34,59 @@ The code includes the following functions:
 
 ## Installation 
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install ZM code.
- 
+1. Download the ZM repository.
+2. In the main ZM directory use the package manager [pip](https://pip.pypa.io/en/stable/) to install ZM package:
+
 ```bash
-
-pip install ZM
-
+!pip install .
 ```
+3. Now you can use ZM package in any local directory on your computer.
 
 ## Usage
 
+1. In any Python editor (interpreter) import the ZM next to the necessary libraries:
 ```python
-
-from ZM import zernikim
-
+import numpy as np
+import matplotlib.pyplot as plt
+from ZM import zernikim as zm
 ```
 
+2. Import the image:
+```python
+img = plt.imread() 
+```
+
+3. Generates Zernike basis functions for a given `size`, `order`, and optional `withneg` parameter for a **square images** of size **SZ**.
+   If WITHNEG is 1, then the basis functions with negative repetition are included.
+```python
+ZBFSTR = zm.zernike_bf(SZ,order,withng)
+```
+
+4. Calculates Zernike moments of an input image (images) using precomputed Zernike basis functions. **I** is the input image.
+```python
+Z=zernike_mom(I,ZBFSTR)
+```
+
+5. Reconstructs an image from Zernike moments using precomputed Zernike basis functions.
+```python
+I=zernike_rec(Z,SZ,ZBFSTR)
+```
+
+You can see some of the examples of the ZM code Usage.
 
 ## Examples
 
 In the following examples, you can see the reconstructed images in different orders of Zernike. By calculating the *reconstruction error*, you can choose the best order for reconstruction.
-1. Spiral galaxy image:
 
+1. Spiral galaxy image:
 ![download](https://github.com/hmddev1/ZM/assets/53661111/3d7a6e46-0591-41c2-9b61-d5e56ab03ead)
+
+2. Irregular galaxy image:
+![msg26473559-3113](https://github.com/hmddev1/ZM/assets/53661111/b0c33925-6123-49af-a425-f0363fe871ef)
+
+3. Elliptical galaxy image:
+![msg26473559-3115](https://github.com/hmddev1/ZM/assets/53661111/233ee62c-3f5a-4ec3-b8c9-cf75f70bcfe9)
+
 
 ## Authors
 
