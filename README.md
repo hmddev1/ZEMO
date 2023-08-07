@@ -64,36 +64,35 @@ ZBFSTR = zm.zernike_bf(SZ,order,withng)
 
 4. Calculates Zernike moments of an input image (images) using precomputed Zernike basis functions. **I** is the input image.
 ```python
-Z=zernike_mom(I,ZBFSTR)
+Z = zm.zernike_mom(I,ZBFSTR)
 ```
 
 5. Reconstructs an image from Zernike moments using precomputed Zernike basis functions.
 ```python
-I=zernike_rec(Z,SZ,ZBFSTR)
+I = zm.zernike_rec(Z,SZ,ZBFSTR)
 ```
 
-You can see some of the examples of the ZM Code Usage.
+You can see some examples of the ZM Code Usage.
 
 ## Examples
 
 In the following examples, you can see the reconstructed images in different orders of Zernike. By calculating the *reconstruction error*, you can choose the best order for reconstruction.
 
-1. Spiral galaxy image:
-
-![photo1691338005](https://github.com/hmddev1/ZM/assets/53661111/89e92208-8262-40fa-b9f9-5d8a0262bdf6)
-
-2. Irregular galaxy image:
-
-![photo1691332052](https://github.com/hmddev1/ZM/assets/53661111/3977da23-0fff-4d76-afc2-acdf28fef8bc)
-
-3. Elliptical galaxy image:
-
-![photo1691333069](https://github.com/hmddev1/ZM/assets/53661111/7f2024e2-5c03-414c-88b7-7e2ef981ff36)
-
-4. Face image: (Face: Hossein Safari)
+1. Face image: (Face: Hossein Safari)
 
 ![HS](https://github.com/hmddev1/ZM/assets/53661111/b9afa396-f09c-4cd8-a07f-bf27c69df580)
 
+2. Spiral galaxy image:
+
+![Spiral_rec](https://github.com/hmddev1/ZM/assets/53661111/aa3a09fc-503b-4b18-9288-9d7c29e2e1ec)
+
+3. Irregular galaxy image:
+
+![Irregular_rec](https://github.com/hmddev1/ZM/assets/53661111/a8942d00-28e3-445d-8f09-de81d5dcc1c3)
+
+4. Elliptical galaxy image:
+
+![Elliptical_rec](https://github.com/hmddev1/ZM/assets/53661111/28268e5a-5518-43d8-ad79-79e023ed55bc)
 
 ## Authors
 
