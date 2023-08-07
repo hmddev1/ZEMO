@@ -79,12 +79,15 @@ You can see some of the examples of the ZM code Usage.
 In the following examples, you can see the reconstructed images in different orders of Zernike. By calculating the *reconstruction error*, you can choose the best order for reconstruction.
 
 1. Spiral galaxy image:
+   
 ![download](https://github.com/hmddev1/ZM/assets/53661111/3d7a6e46-0591-41c2-9b61-d5e56ab03ead)
 
 2. Irregular galaxy image:
+   
 ![msg26473559-3113](https://github.com/hmddev1/ZM/assets/53661111/b0c33925-6123-49af-a425-f0363fe871ef)
 
 3. Elliptical galaxy image:
+   
 ![msg26473559-3115](https://github.com/hmddev1/ZM/assets/53661111/233ee62c-3f5a-4ec3-b8c9-cf75f70bcfe9)
 
 
