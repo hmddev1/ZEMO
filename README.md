@@ -32,19 +32,19 @@ The code includes the following functions:
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install ZM code.
  
-'''bash
+```bash
 
 pip install ZM
 
-'''
+```
 
 ## Usage
 
-'''python
+```python
 
 from ZM import zernikim
 
-'''
+```
 
 ## Authors
 
