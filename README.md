@@ -90,6 +90,11 @@ In the following examples, you can see the reconstructed images in different ord
 
 ![photo1691333069](https://github.com/hmddev1/ZM/assets/53661111/7f2024e2-5c03-414c-88b7-7e2ef981ff36)
 
+4. Face image:
+
+![HS](https://github.com/hmddev1/ZM/assets/53661111/b9afa396-f09c-4cd8-a07f-bf27c69df580)
+
+
 ## Authors
 
 [Hamed Ghaderi](https://github.com/hmddev1), [Nasibe Alipour](https://scholar.google.com/citations?user=PfzZOI0AAAAJ&hl=en), [Pardis Garavand](https://www.linkedin.com/in/pardis-garavand-25b30527b/), [Hossein Safari](https://scholar.google.com/citations?user=nCc1FV8AAAAJ&hl=en)
