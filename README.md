@@ -83,13 +83,12 @@ In the following examples, you can see the reconstructed images in different ord
 ![download](https://github.com/hmddev1/ZM/assets/53661111/3d7a6e46-0591-41c2-9b61-d5e56ab03ead)
 
 2. Irregular galaxy image:
-   
-![msg26473559-3113](https://github.com/hmddev1/ZM/assets/53661111/b0c33925-6123-49af-a425-f0363fe871ef)
+
+![photo1691332052](https://github.com/hmddev1/ZM/assets/53661111/3977da23-0fff-4d76-afc2-acdf28fef8bc)
 
 3. Elliptical galaxy image:
-   
-![msg26473559-3115](https://github.com/hmddev1/ZM/assets/53661111/233ee62c-3f5a-4ec3-b8c9-cf75f70bcfe9)
 
+![photo1691333069](https://github.com/hmddev1/ZM/assets/53661111/7f2024e2-5c03-414c-88b7-7e2ef981ff36)
 
 ## Authors
 
