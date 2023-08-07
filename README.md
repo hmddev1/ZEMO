@@ -72,7 +72,7 @@ Z=zernike_mom(I,ZBFSTR)
 I=zernike_rec(Z,SZ,ZBFSTR)
 ```
 
-You can see some of the examples of the ZM code Usage.
+You can see some of the examples of the ZM Code Usage.
 
 ## Examples
 
@@ -90,7 +90,7 @@ In the following examples, you can see the reconstructed images in different ord
 
 ![photo1691333069](https://github.com/hmddev1/ZM/assets/53661111/7f2024e2-5c03-414c-88b7-7e2ef981ff36)
 
-4. Face image:
+4. Face image: (Face: Hossein Safari)
 
 ![HS](https://github.com/hmddev1/ZM/assets/53661111/b9afa396-f09c-4cd8-a07f-bf27c69df580)
 
