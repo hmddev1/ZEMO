@@ -234,7 +234,7 @@ plt.tick_params(axis='both', which='major', labelsize=18)
 plt.savefig("errorS.jpg", bbox_inches='tight')
 plt.show()
 ```
-You can see the reconstruction error of a spiral galaxy as an example: (The best order would be around $P_max=45$)
+You can see the reconstruction error of a spiral galaxy as an example: (The best order would be around $P_(max)=45$)
 
 <p align="center">
 <img src="https://github.com/hmddev1/ZM/assets/53661111/c3f98192-c38a-4c8b-8794-2eec95d11044" alt="errorS" width="500">
