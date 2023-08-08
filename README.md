@@ -40,7 +40,8 @@ The code includes the following functions:
 ```bash
 !pip install .
 ```
-3. Now you can use ZM package in any local directory on your computer.
+
+Now you can use ZM package in any local directory on your computer.
 
 ## Usage
 
