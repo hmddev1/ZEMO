@@ -49,24 +49,18 @@ The code includes the following functions:
 from ZM import zernikim as zm
 ```
 
-2. Import the image:
-```python
-img = plt.imread()
-m=np.shape(img)
-```
-
-3. Generates Zernike basis functions for a given `size`, `order`, and optional `withneg` parameter for a **square images** of size **SZ**.
+2. Generates Zernike basis functions for a given `size`, `order`, and optional `withneg` parameter for a **square images** of size **SZ**.
    If WITHNEG is 1, then the basis functions with negative repetition are included.
 ```python
-ZBFSTR = zm.zernike_bf(SZ,order,withng) #ZBFSTR = zm.zernike_bf(m[0],order,withng)
+ZBFSTR = zm.zernike_bf(SZ,order,withng) 
 ```
 
-4. Calculates Zernike moments of an input image (images) using precomputed Zernike basis functions. **I** is the input image.
+3. Calculates Zernike moments of an input image (images) using precomputed Zernike basis functions. **I** is the input image.
 ```python
 Z = zm.zernike_mom(I,ZBFSTR)
 ```
 
-5. Reconstructs an image from Zernike moments using precomputed Zernike basis functions.
+4. Reconstructs an image from Zernike moments using precomputed Zernike basis functions.
 ```python
 I = zm.zernike_rec(Z,SZ,ZBFSTR)
 ```
@@ -122,17 +116,74 @@ plt.savefig("HS.eps",bbox_inches='tight')
 
 ![HS](https://github.com/hmddev1/ZM/assets/53661111/b9afa396-f09c-4cd8-a07f-bf27c69df580)
 
-2. Spiral galaxy image:
+2. From left to right, panels represent the original and reconstructed images with the different maximum order numbers (Pmax= 10, 45, and 47), respectively, for a spiral galaxy (top row), elliptical galaxy (middle row), and irregular galaxy (bottom row). Recorded by SDSS survey.
+
+```python
+import os
+import numpy as np
+from ZM import zernikim as zm
+import matplotlib.pyplot as plt
+import astropy
+from astropy.io import fits
+import astropy.io.fits.header
+from astropy.utils.data import get_pkg_data_filename
+
+directory_path = r'path\to\your\directory\ZM\Data' # You need to read an example FITS file from the directory: ZM\Data\
+filename = 'S.fits' # You can also test the "E.fits" and "I.fits" files
+
+file_path = os.path.join(directory_path, filename)
+
+hdul = fits.open(file_path)
+data = hdul[0].data
+hdul.close()
+crop_img = data[100:160,100:160]
+
+print(crop_img.shape)
+# plt.imshow(crop_img, cmap='gray',origin='lower')
+# plt.show()
+
+ZBFSTR1=zm.zernike_bf(60,10,1)
+ZBFSTR2=zm.zernike_bf(60,31,1)
+ZBFSTR3=zm.zernike_bf(60,45,1)
+ZBFSTR4=zm.zernike_bf(60,48,1)
+
+Z1=zm.zernike_mom(crop_img, ZBFSTR1)
+Z2=zm.zernike_mom(crop_img, ZBFSTR2)
+Z3=zm.zernike_mom(crop_img, ZBFSTR3)
+Z4=zm.zernike_mom(crop_img, ZBFSTR4)
+
+SZ=crop_img.shape
+reconstructed_image1 = zm.zernike_rec(Z1,SZ[0],ZBFSTR1)
+reconstructed_image2 = zm.zernike_rec(Z2,SZ[0],ZBFSTR2)
+reconstructed_image3 = zm.zernike_rec(Z3,SZ[0],ZBFSTR3)
+reconstructed_image4 = zm.zernike_rec(Z4,SZ[0],ZBFSTR4)
+
+fig, axes = plt.subplots(nrows=4, ncols=1,figsize=(6,6))
+plt.subplot(1,4,1)
+plt.imshow(crop_img,  interpolation='nearest',cmap='bone')
+plt.title('Original Image', fontsize=9)
+plt.axis('off')
+plt.subplot(1,4,2)
+plt.imshow(reconstructed_image1, interpolation='nearest',cmap='gray')
+plt.title('$P_{max}=10$', fontsize=9)
+plt.axis('off')
+plt.subplot(1,4,3)
+plt.imshow(reconstructed_image3, interpolation='nearest',cmap='gray')
+plt.title('$P_{max}=45$', fontsize=9)
+plt.axis('off')
+plt.subplot(1,4,4)
+plt.imshow(reconstructed_image4, interpolation='nearest',cmap='gray')
+plt.title('$P_{max}=47$', fontsize=9)
+plt.axis('off')
+plt.savefig("Spiral_rec.jpg")
+```
 
 ![Spiral_rec](https://github.com/hmddev1/ZM/assets/53661111/aa3a09fc-503b-4b18-9288-9d7c29e2e1ec)
 
-3. Irregular galaxy image:
+![Elliptical_rec](https://github.com/hmddev1/ZM/assets/53661111/28268e5a-5518-43d8-ad79-79e023ed55bc)
 
 ![Irregular_rec](https://github.com/hmddev1/ZM/assets/53661111/a8942d00-28e3-445d-8f09-de81d5dcc1c3)
 
-4. Elliptical galaxy image:
-
-![Elliptical_rec](https://github.com/hmddev1/ZM/assets/53661111/28268e5a-5518-43d8-ad79-79e023ed55bc)
 
 ## Authors
 
