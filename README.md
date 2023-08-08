@@ -70,6 +70,7 @@ You can see some examples of the ZM Code Usage.
 
 In the following examples, you can see the reconstructed images in different orders of Zernike. By calculating the *reconstruction error*, you can choose the best order for reconstruction.
 You can use these example images in the **Examples** directory.
+**Note:** Make a Python file in **ZM\Examples\** directory and test the examples with the codes provided below.
 
 1. Face image: (Face: Hossein Safari)
 
