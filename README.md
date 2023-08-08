@@ -77,43 +77,28 @@ You can use these example images in the **Data** directory.
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
-from ZM import zernikim as zm
+from ZM import zernikeim as zm
 
 img = plt.imread('HS.png')
-m=np.shape(img)
-
-ZBFSTR1=zm.zernike_bf(m[0],10,1)
-ZBFSTR2=zm.zernike_bf(m[0],45,1)
-ZBFSTR3=zm.zernike_bf(m[0],46,1)
-
-Z1=zm.zernike_mom(np.double(img),ZBFSTR1)
-I1=zm.zernike_rec(Z1,251,ZBFSTR1)
-
-Z2=zm.zernike_mom(np.double(img),ZBFSTR2)
-I2=zm.zernike_rec(Z2,251,ZBFSTR2)
-
-Z3=zm.zernike_mom(np.double(img),ZBFSTR3)
-I3=zm.zernike_rec(Z3,251,ZBFSTR3)
 
 fig, axes = plt.subplots(nrows=4, ncols=1,figsize=(6,6))
 plt.subplot(1,4,1)
 plt.imshow(img,  interpolation='nearest',cmap='bone')
 plt.title('Original Image', fontsize=9)
 plt.axis('off')
-plt.subplot(1,4,2)
-plt.imshow(I1, interpolation='nearest',cmap='bone')
-plt.title('$P_{max}=10$', fontsize=9)
-plt.axis('off')
-plt.subplot(1,4,3)
-plt.imshow(I2, interpolation='nearest',cmap='bone')
-plt.title('$P_{max}=45$', fontsize=9)
-plt.axis('off')
-plt.subplot(1,4,4)
-plt.imshow(I3, interpolation='nearest',cmap='bone')
-plt.title('$P_{max}=46$', fontsize=9)
-plt.axis('off')
-plt.savefig("HS.eps",bbox_inches='tight')
+SZ=np.shape(img)
+Order=[10,45,46]
+
+for i in range(3):
+   ZBFSTR=zm.zernike_bf(SZ[0],Order[i],1)
+   Z=zm.zernike_mom(np.double(img),ZBFSTR)
+   I=zm.zernike_rec(Z,SZ[0],ZBFSTR)
+   plt.subplot(1,4,i+2)
+   plt.imshow(I,interpolation='nearest',cmap='bone')
+   plt.title('order='+ str(Order[i]), fontsize=9)
+   plt.axis('off')
 ```
+
 <p align="center">
 <img src="https://github.com/hmddev1/ZM/assets/53661111/b9afa396-f09c-4cd8-a07f-bf27c69df580" alt="HS" width="500">
 </p>
