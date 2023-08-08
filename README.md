@@ -117,7 +117,7 @@ plt.savefig("HS.eps",bbox_inches='tight')
 <img src="https://github.com/hmddev1/ZM/assets/53661111/b9afa396-f09c-4cd8-a07f-bf27c69df580" alt="HS" width="500">
 </p>
 
-2. From left to right, panels represent the original and reconstructed images with the different maximum order numbers (Pmax= 10, 45, and 47), respectively, for a spiral galaxy (top row), elliptical galaxy (middle row), and irregular galaxy (bottom row). Recorded by SDSS survey.
+2. Respectively, for a spiral galaxy (top row), elliptical galaxy (middle row), and irregular galaxy (bottom row). Recorded by SDSS survey.
 
 ```python
 import os
