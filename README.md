@@ -3,7 +3,6 @@
 This program is prepared based on the code provided by Mr. Christian Wolf, originally written in MATLAB. This code calculates Zernike moments for astronomical and non-astronomical images. Zernike moments are unique due to orthogonality and a complete set of Zernike polynomials. Zernike moments are used in image analysis to characterize the shape and structure of objects. The following articles and their references give a detailed description of the Zernike polynomials and Zernike moments.
 
 [Raboonik, A., Safari, H., Alipour, N., & Wheatland, M. S. 2017, ApJ, 834, 11](https://iopscience.iop.org/article/10.3847/1538-4357/834/1/11/meta)
-
 [Alipour, N., Mohammadi, F., Safari, H. 2019, ApJS, 243, 20](https://iopscience.iop.org/article/10.3847/1538-4365/ab289b/meta)
 
 ## Description 
@@ -97,6 +96,7 @@ for i in range(3):
    plt.imshow(I,interpolation='nearest',cmap='bone')
    plt.title('order='+ str(Order[i]), fontsize=9)
    plt.axis('off')
+plt.show()
 ```
 <p align="center">
 <img src="https://github.com/hmddev1/ZM/assets/53661111/b9afa396-f09c-4cd8-a07f-bf27c69df580" alt="HS" width="500">
@@ -136,6 +136,7 @@ for i in range(3):
    plt.imshow(I,interpolation='nearest',cmap='bone')
    plt.title('order='+ str(Order[i]), fontsize=9)
    plt.axis('off')
+plt.show()
 ```
 
 <p align="center">
