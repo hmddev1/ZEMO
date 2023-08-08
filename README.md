@@ -65,15 +65,15 @@ Z = zm.zernike_mom(I,ZBFSTR)
 ```python
 I = zm.zernike_rec(Z,SZ,ZBFSTR)
 ```
-
 You can see some examples of the ZM Code Usage.
 
 ## Examples
 
 In the following examples, you can see the reconstructed images in different orders of Zernike. By calculating the *reconstruction error*, you can choose the best order for reconstruction.
-You can use these example images in the **Data** directory.
+You can use these example images in the **Examples** directory.
 
 1. Face image: (Face: Hossein Safari)
+
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -98,7 +98,6 @@ for i in range(3):
    plt.title('order='+ str(Order[i]), fontsize=9)
    plt.axis('off')
 ```
-
 <p align="center">
 <img src="https://github.com/hmddev1/ZM/assets/53661111/b9afa396-f09c-4cd8-a07f-bf27c69df580" alt="HS" width="500">
 </p>
@@ -108,121 +107,43 @@ for i in range(3):
 ```python
 import os
 import numpy as np
-from ZM import zernikim as zm
 import matplotlib.pyplot as plt
+from ZM import zernikim as zm
 import astropy
 from astropy.io import fits
-import astropy.io.fits.header
-from astropy.utils.data import get_pkg_data_filename
 
-directory_path = r'path\to\your\directory\ZM\Data' # You need to read an example FITS file from the directory: ZM\Data\
-filename = 'S.fits' # You can also test the "E.fits" and "I.fits" files
+directory_path = r'E:\Master_Thesis\ZM\Examples'          # You need to read an example FITS file from the directory: ZM\Examples\
+filename = 'S.fits'          # You can also test the "E.fits" and "I.fits" files
 
 file_path = os.path.join(directory_path, filename)
-
 hdul = fits.open(file_path)
 data = hdul[0].data
 hdul.close()
-crop_img = data[100:160,100:160]
-
-print(crop_img.shape)
-# plt.imshow(crop_img, cmap='gray',origin='lower')
-# plt.show()
-
-ZBFSTR1=zm.zernike_bf(60,10,1)
-ZBFSTR2=zm.zernike_bf(60,31,1)
-ZBFSTR3=zm.zernike_bf(60,45,1)
-ZBFSTR4=zm.zernike_bf(60,48,1)
-
-Z1=zm.zernike_mom(crop_img, ZBFSTR1)
-Z2=zm.zernike_mom(crop_img, ZBFSTR2)
-Z3=zm.zernike_mom(crop_img, ZBFSTR3)
-Z4=zm.zernike_mom(crop_img, ZBFSTR4)
-
-SZ=crop_img.shape
-reconstructed_image1 = zm.zernike_rec(Z1,SZ[0],ZBFSTR1)
-reconstructed_image2 = zm.zernike_rec(Z2,SZ[0],ZBFSTR2)
-reconstructed_image3 = zm.zernike_rec(Z3,SZ[0],ZBFSTR3)
-reconstructed_image4 = zm.zernike_rec(Z4,SZ[0],ZBFSTR4)
 
 fig, axes = plt.subplots(nrows=4, ncols=1,figsize=(6,6))
 plt.subplot(1,4,1)
-plt.imshow(crop_img,  interpolation='nearest',cmap='bone')
+plt.imshow(data,  interpolation='nearest',cmap='bone')
 plt.title('Original Image', fontsize=9)
 plt.axis('off')
-plt.subplot(1,4,2)
-plt.imshow(reconstructed_image1, interpolation='nearest',cmap='gray')
-plt.title('$P_{max}=10$', fontsize=9)
-plt.axis('off')
-plt.subplot(1,4,3)
-plt.imshow(reconstructed_image3, interpolation='nearest',cmap='gray')
-plt.title('$P_{max}=45$', fontsize=9)
-plt.axis('off')
-plt.subplot(1,4,4)
-plt.imshow(reconstructed_image4, interpolation='nearest',cmap='gray')
-plt.title('$P_{max}=47$', fontsize=9)
-plt.axis('off')
-plt.savefig("S_rec.jpg")
-plt.show()
+SZ=np.shape(data)
+Order=[10,45,46]
+
+for i in range(3):
+   ZBFSTR=zm.zernike_bf(SZ[0],Order[i],1)
+   Z=zm.zernike_mom(np.double(data),ZBFSTR)
+   I=zm.zernike_rec(Z,SZ[0],ZBFSTR)
+   plt.subplot(1,4,i+2)
+   plt.imshow(I,interpolation='nearest',cmap='bone')
+   plt.title('order='+ str(Order[i]), fontsize=9)
+   plt.axis('off')
 ```
+
 <p align="center">
 <img src="https://github.com/hmddev1/ZM/assets/53661111/aa3a09fc-503b-4b18-9288-9d7c29e2e1ec" alt="Spiral_rec" width="500">
 
 <img src="https://github.com/hmddev1/ZM/assets/53661111/28268e5a-5518-43d8-ad79-79e023ed55bc" alt="Elliptical_rec" width="500">
 
 <img src="https://github.com/hmddev1/ZM/assets/53661111/a8942d00-28e3-445d-8f09-de81d5dcc1c3" alt="Irregular_rec" width="500">
-</p>
-
-3. To determine the order more effectively and accurately, we can use the reconstruction error function and select the order with the least error by viewing the graph.
-
-```python
-import os
-import numpy as np
-from ZM import zernikim as zm
-import matplotlib.pyplot as plt
-import astropy
-from astropy.io import fits
-import astropy.io.fits.header
-from astropy.utils.data import get_pkg_data_filename
-
-
-directory_path = r'path\to\your\directory\ZM\Data' # You need to read an example FITS file from the directory: ZM\Data\
-filename = 'S.fits' # You can also test the "E.fits" and "I.fits" files
-
-file_path = os.path.join(directory_path, filename)
-
-hdul = fits.open(file_path)
-data = hdul[0].data
-hdul.close()
-crop_img = data[100:160,100:160]
-print(crop_img.shape)
-
-def MSE(img1, img2):
-        squared_diff = (img1 -img2) ** 2
-        summed = np.sum(squared_diff)
-        err=summed/(np.sum(img1**2))
-        return err
-
-e=np.zeros(50)
-BB=np.double(crop_img);
-
-for i in range(1,50):
-    ZBFSTR=zm.zernike_bf(60,i,1)
-    Z=zm.zernike_mom(BB,ZBFSTR)
-    I=zm.zernike_rec(Z,60,ZBFSTR)
-    e[i]=MSE(BB/np.max(BB), I/np.max(I))
-
-plt.plot(e,linewidth=2.5)
-plt.xlabel('(p,q)', fontsize=18)
-plt.ylabel('Reconstruction Error', fontsize=18)
-plt.tick_params(axis='both', which='major', labelsize=18)
-plt.savefig("errorS.jpg", bbox_inches='tight')
-plt.show()
-```
-You can see the reconstruction error of a spiral galaxy as an example: (The best order would be around $P_max = 45$)
-
-<p align="center">
-<img src="https://github.com/hmddev1/ZM/assets/53661111/c3f98192-c38a-4c8b-8794-2eec95d11044" alt="errorS" width="500">
 </p>
 
 ## Authors
