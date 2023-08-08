@@ -177,7 +177,8 @@ plt.subplot(1,4,4)
 plt.imshow(reconstructed_image4, interpolation='nearest',cmap='gray')
 plt.title('$P_{max}=47$', fontsize=9)
 plt.axis('off')
-plt.savefig("Spiral_rec.jpg")
+plt.savefig("S_rec.jpg")
+plt.show()
 ```
 <p align="center">
 <img src="https://github.com/hmddev1/ZM/assets/53661111/aa3a09fc-503b-4b18-9288-9d7c29e2e1ec" alt="Spiral_rec" width="500">
@@ -185,6 +186,58 @@ plt.savefig("Spiral_rec.jpg")
 <img src="https://github.com/hmddev1/ZM/assets/53661111/28268e5a-5518-43d8-ad79-79e023ed55bc" alt="Elliptical_rec" width="500">
 
 <img src="https://github.com/hmddev1/ZM/assets/53661111/a8942d00-28e3-445d-8f09-de81d5dcc1c3" alt="Irregular_rec" width="500">
+</p>
+
+3. To determine the order more effectively and accurately, we can use the reconstruction error function and select the order with the least error by viewing the graph.
+
+```python
+import os
+import numpy as np
+from ZM import zernikim as zm
+import matplotlib.pyplot as plt
+import astropy
+from astropy.io import fits
+import astropy.io.fits.header
+from astropy.utils.data import get_pkg_data_filename
+
+
+directory_path = r'path\to\your\directory\ZM\Data' # You need to read an example FITS file from the directory: ZM\Data\
+filename = 'S.fits' # You can also test the "E.fits" and "I.fits" files
+
+file_path = os.path.join(directory_path, filename)
+
+hdul = fits.open(file_path)
+data = hdul[0].data
+hdul.close()
+crop_img = data[100:160,100:160]
+print(crop_img.shape)
+
+def MSE(img1, img2):
+        squared_diff = (img1 -img2) ** 2
+        summed = np.sum(squared_diff)
+        err=summed/(np.sum(img1**2))
+        return err
+
+e=np.zeros(50)
+BB=np.double(crop_img);
+
+for i in range(1,50):
+    ZBFSTR=zm.zernike_bf(60,i,1)
+    Z=zm.zernike_mom(BB,ZBFSTR)
+    I=zm.zernike_rec(Z,60,ZBFSTR)
+    e[i]=MSE(BB/np.max(BB), I/np.max(I))
+
+plt.plot(e,linewidth=2.5)
+plt.xlabel('(p,q)', fontsize=18)
+plt.ylabel('Reconstruction Error', fontsize=18)
+plt.tick_params(axis='both', which='major', labelsize=18)
+plt.savefig("errorS.jpg", bbox_inches='tight')
+plt.show()
+```
+You can see the reconstruction error of a spiral galaxy as an example: (The best order would be around $P_max=45$)
+
+<p align="center">
+<img src="https://github.com/hmddev1/ZM/assets/53661111/c3f98192-c38a-4c8b-8794-2eec95d11044" alt="errorS" width="500">
 </p>
 
 ## Authors
