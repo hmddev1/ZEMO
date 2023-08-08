@@ -178,8 +178,8 @@ plt.axis('off')
 plt.savefig("Spiral_rec.jpg")
 ```
 
-<img src="https://github.com/hmddev1/ZM/assets/53661111/aa3a09fc-503b-4b18-9288-9d7c29e2e1ec" alt="Spiral_rec" width="100">
-![Spiral_rec](https://github.com/hmddev1/ZM/assets/53661111/aa3a09fc-503b-4b18-9288-9d7c29e2e1ec)
+<img src="https://github.com/hmddev1/ZM/assets/53661111/aa3a09fc-503b-4b18-9288-9d7c29e2e1ec" alt="Spiral_rec" width="300">
+<!-- ![Spiral_rec](https://github.com/hmddev1/ZM/assets/53661111/aa3a09fc-503b-4b18-9288-9d7c29e2e1ec) -->
 
 ![Elliptical_rec](https://github.com/hmddev1/ZM/assets/53661111/28268e5a-5518-43d8-ad79-79e023ed55bc)
 
