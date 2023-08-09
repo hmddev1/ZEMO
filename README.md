@@ -119,7 +119,7 @@ from ZM import zernikim as zm
 import astropy
 from astropy.io import fits
 
-directory_path = r'E:\Master_Thesis\ZM\Examples'          # You need to read an example FITS file from the directory: ZM\Examples\
+directory_path = r'path\to\your\direcotry\ZM-main\ZM\Examples'          # You need to read an example FITS file from the directory: ZM\Examples\
 filename = 'S.fits'          # You can also test the "E.fits" and "I.fits" files
 
 file_path = os.path.join(directory_path, filename)
