@@ -99,7 +99,7 @@ for i in range(3):
    I=zm.zernike_rec(Z,SZ[0],ZBFSTR)
    plt.subplot(1,4,i+2)
    plt.imshow(I,interpolation='nearest',cmap='bone')
-   plt.title('$P_max$='+ str(Order[i]), fontsize=9)
+   plt.title('$P_{max}$='+ str(Order[i]), fontsize=9)
    plt.axis('off')
 plt.show()
 ```
@@ -141,7 +141,7 @@ for i in range(3):
    I=zm.zernike_rec(Z,SZ[0],ZBFSTR)
    plt.subplot(1,4,i+2)
    plt.imshow(I,interpolation='nearest',cmap='bone')
-   plt.title('$P_max$='+ str(Order[i]), fontsize=9)
+   plt.title('$P_{max}$='+ str(Order[i]), fontsize=9)
    plt.axis('off')
 plt.show()
 ```
