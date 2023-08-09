@@ -104,8 +104,10 @@ for i in range(3):
 plt.show()
 ```
 <p align="center">
-<img src="https://github.com/hmddev1/ZM/assets/53661111/b9afa396-f09c-4cd8-a07f-bf27c69df580" alt="HS" width="500">
+<img src="https://github.com/hmddev1/ZM/assets/53661111/51055b70-0b3e-453e-83bf-c5f0275fb1d1" alt="HS" width="500">
 </p>
+![HS](https://github.com/hmddev1/ZM/assets/53661111/51055b70-0b3e-453e-83bf-c5f0275fb1d1)
+
 
 2. Respectively, for a spiral galaxy (top row), elliptical galaxy (middle row), and irregular galaxy (bottom row). Recorded by SDSS survey.
 
@@ -145,11 +147,14 @@ plt.show()
 ```
 
 <p align="center">
-<img src="https://github.com/hmddev1/ZM/assets/53661111/aa3a09fc-503b-4b18-9288-9d7c29e2e1ec" alt="Spiral_rec" width="500">
+<img src="https://github.com/hmddev1/ZM/assets/53661111/5f220f89-cf97-48c3-a3b4-52911b84b78e" alt="Spiral_rec" width="500">
+<!-- ![Spiral_rec](https://github.com/hmddev1/ZM/assets/53661111/5f220f89-cf97-48c3-a3b4-52911b84b78e) -->
 
-<img src="https://github.com/hmddev1/ZM/assets/53661111/28268e5a-5518-43d8-ad79-79e023ed55bc" alt="Elliptical_rec" width="500">
+<img src="https://github.com/hmddev1/ZM/assets/53661111/efeb672c-2f96-44f5-923e-ef40b0b4e594" alt="Elliptical_rec" width="500">
+<!-- ![Elliptical_rec](https://github.com/hmddev1/ZM/assets/53661111/efeb672c-2f96-44f5-923e-ef40b0b4e594) -->
 
-<img src="https://github.com/hmddev1/ZM/assets/53661111/a8942d00-28e3-445d-8f09-de81d5dcc1c3" alt="Irregular_rec" width="500">
+<img src="https://github.com/hmddev1/ZM/assets/53661111/58cd6840-3c85-4b5a-bd34-3acfb645e391" alt="Irregular_rec" width="500">
+<!-- ![Irregular_rec](https://github.com/hmddev1/ZM/assets/53661111/58cd6840-3c85-4b5a-bd34-3acfb645e391) -->
 </p>
 
 ## Authors
