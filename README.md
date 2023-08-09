@@ -34,7 +34,7 @@ The code includes the following functions:
 ## Installation 
 
 1. Download the ZM repository.
-2. In the main ZM directory use the package manager [pip](https://pip.pypa.io/en/stable/) to install ZM package:
+2. After download, in the main ZM directory ```(ZM-main\ZM\)``` use the package manager [pip](https://pip.pypa.io/en/stable/) to install ZM package:
 
 ```bash
 !pip install .
