@@ -87,7 +87,7 @@ img = plt.imread('HS.png')
 
 fig, axes = plt.subplots(nrows=4, ncols=1,figsize=(6,6))
 plt.subplot(1,4,1)
-plt.imshow(img,  interpolation='nearest',cmap='bone')
+plt.imshow(img, interpolation='nearest',cmap='bone')
 plt.title('Original Image', fontsize=9)
 plt.axis('off')
 SZ=np.shape(img)
@@ -99,7 +99,7 @@ for i in range(3):
    I=zm.zernike_rec(Z,SZ[0],ZBFSTR)
    plt.subplot(1,4,i+2)
    plt.imshow(I,interpolation='nearest',cmap='bone')
-   plt.title('order='+ str(Order[i]), fontsize=9)
+   plt.title('$P_max$='+ str(Order[i]), fontsize=9)
    plt.axis('off')
 plt.show()
 ```
@@ -129,11 +129,11 @@ hdul.close()
 
 fig, axes = plt.subplots(nrows=4, ncols=1,figsize=(6,6))
 plt.subplot(1,4,1)
-plt.imshow(data,  interpolation='nearest',cmap='bone')
+plt.imshow(data, interpolation='nearest',cmap='bone')
 plt.title('Original Image', fontsize=9)
 plt.axis('off')
 SZ=np.shape(data)
-Order=[10,45,46]
+Order=[10,45,47]
 
 for i in range(3):
    ZBFSTR=zm.zernike_bf(SZ[0],Order[i],1)
@@ -141,7 +141,7 @@ for i in range(3):
    I=zm.zernike_rec(Z,SZ[0],ZBFSTR)
    plt.subplot(1,4,i+2)
    plt.imshow(I,interpolation='nearest',cmap='bone')
-   plt.title('order='+ str(Order[i]), fontsize=9)
+   plt.title('$P_max$='+ str(Order[i]), fontsize=9)
    plt.axis('off')
 plt.show()
 ```
