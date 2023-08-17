@@ -8,26 +8,10 @@ Original file is located at
 
 **Importing libraries:**
 """
-
-# Commented out IPython magic to ensure Python compatibility.
-import os
 import math
-import glob
-import cv2
 import numpy as np
-from PIL import Image
-import pandas as pd
 from numpy.linalg import lstsq, matrix_rank, norm
-import matplotlib.pyplot as plt
-# %matplotlib inline
-import astropy
-from astropy.io import fits
-from astropy.visualization import astropy_mpl_style
-plt.style.use(astropy_mpl_style)
-from astropy.utils.data import get_pkg_data_filename
-import astropy.io.fits.header
-from astropy.visualization import (MinMaxInterval, SqrtStretch,ImageNormalize)
-from matplotlib.colors import LogNorm
+
 
 """**Order list func.:**"""
 
