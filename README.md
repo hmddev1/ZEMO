@@ -74,7 +74,7 @@ You can see some examples of the ZM Code Usage.
 ## Examples
 
 In the following examples, we provide the calculations of Zernike moments for a given image. To validate the calculation, we reconstructed images in different orders of Zernike maximum orders. 
-You can use these example images in the Examples directory. Note: Make a Python file in the *ZM\Examples* directory and test the examples with the codes provided below.
+You can use these example images in the Examples directory. Note: Make a Python file in the ```ZM-main\ZM\Examples``` directory and test the examples with the codes provided below.
 
 1. Face image: (Face: Hossein Safari)
 
