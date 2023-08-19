@@ -73,8 +73,8 @@ You can see some examples of the ZM Code Usage.
 
 ## Examples
 
-In the following examples, we provide the calculations pf Zernike moments for a given image. To validate the calculation, we reconstructed images in different orders of Zernike maximum orders. 
-You can use these example images in the Examples directory. Note: Make a Python file in *ZM\Examples* directory and test the examples with the codes provided below.
+In the following examples, we provide the calculations of Zernike moments for a given image. To validate the calculation, we reconstructed images in different orders of Zernike maximum orders. 
+You can use these example images in the Examples directory. Note: Make a Python file in the *ZM\Examples* directory and test the examples with the codes provided below.
 
 1. Face image: (Face: Hossein Safari)
 
@@ -109,7 +109,7 @@ plt.show()
 <!-- ![HS](https://github.com/hmddev1/ZM/assets/53661111/51055b70-0b3e-453e-83bf-c5f0275fb1d1) -->
 
 
-2. The orogonal and reconstructed image of a spiral galaxy (top row), elliptical galaxy (middle row), and irregular galaxy (bottom row) recorded by SDSS survey.
+2. The original and reconstructed image of a spiral galaxy (top row), elliptical galaxy (middle row), and irregular galaxy (bottom row) recorded by the SDSS survey.
 
 ```python
 import os
