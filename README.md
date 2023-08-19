@@ -116,7 +116,6 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 from ZM import zernikim as zm
-import astropy
 from astropy.io import fits
 
 directory_path = r'path\to\your\direcotry\ZM-main\ZM\Examples'          # You need to read an example FITS file from the directory: ZM-main\ZM\Examples\
