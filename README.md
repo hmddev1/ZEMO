@@ -1,6 +1,6 @@
-# Zernike Moments - Astronomical and non-astronomical images
+# Zernike moments: Digital images
 
-This program is prepared based on the code provided by Mr. Christian Wolf, originally written in MATLAB. This code calculates Zernike moments for astronomical and non-astronomical images. Zernike moments are unique due to orthogonality and a complete set of Zernike polynomials. Zernike moments are used in image analysis to characterize the shape and structure of objects. The following articles and their references give a detailed description of the Zernike polynomials and Zernike moments.
+The Zernike moment's package program is developed for square digital images mimicking some part of Matlab code provided by Christian Wolf. Zernike moments are unique due to orthogonality and a complete set of Zernike polynomials. Zernike moments are used in image analysis to characterize the shape and structure of objects. The following articles and their references give a detailed description of the Zernike polynomials and Zernike moments.
 
 [Raboonik, A., Safari, H., Alipour, N., & Wheatland, M. S. 2017, ApJ, 834, 11](https://iopscience.iop.org/article/10.3847/1538-4357/834/1/11/meta)
 
@@ -55,9 +55,9 @@ from ZM import zernikim as zm
 ```
 
 2. Generates Zernike basis functions for a given `size`, `order`, and optional `withneg` parameter for a **square images** of size **SZ**.
-   If WITHNEG is 1, then the basis functions with negative repetition are included.
+   If withneg is 1, then the basis functions with negative repetition are included.
 ```python
-ZBFSTR = zm.zernike_bf(SZ,order,withng) 
+ZBFSTR = zm.zernike_bf(SZ,order,withneg) 
 ```
 
 3. Calculates Zernike moments of an input image (images) using precomputed Zernike basis functions. **I** is the input image.
@@ -73,9 +73,8 @@ You can see some examples of the ZM Code Usage.
 
 ## Examples
 
-In the following examples, you can see the reconstructed images in different orders of Zernike. By calculating the *reconstruction error*, you can choose the best order for reconstruction.
-You can use these example images in the **Examples** directory.
-**Note:** Make a Python file in **ZM\Examples\** directory and test the examples with the codes provided below.
+In the following examples, we provide the calculations pf Zernike moments for a given image. To validate the calculation, we reconstructed images in different orders of Zernike maximum orders. 
+You can use these example images in the Examples directory. Note: Make a Python file in *ZM\Examples* directory and test the examples with the codes provided below.
 
 1. Face image: (Face: Hossein Safari)
 
@@ -110,7 +109,7 @@ plt.show()
 <!-- ![HS](https://github.com/hmddev1/ZM/assets/53661111/51055b70-0b3e-453e-83bf-c5f0275fb1d1) -->
 
 
-2. Respectively, for a spiral galaxy (top row), elliptical galaxy (middle row), and irregular galaxy (bottom row). Recorded by SDSS survey.
+2. The orogonal and reconstructed image of a spiral galaxy (top row), elliptical galaxy (middle row), and irregular galaxy (bottom row) recorded by SDSS survey.
 
 ```python
 import os
@@ -120,7 +119,7 @@ from ZM import zernikim as zm
 import astropy
 from astropy.io import fits
 
-directory_path = r'path\to\your\direcotry\ZM-main\ZM\Examples'          # You need to read an example FITS file from the directory: ZM\Examples\
+directory_path = r'path\to\your\direcotry\ZM-main\ZM\Examples'          # You need to read an example FITS file from the directory: ZM-main\ZM\Examples\
 filename = 'S.fits'          # You can also test the "E.fits" and "I.fits" files
 
 file_path = os.path.join(directory_path, filename)
