@@ -157,7 +157,7 @@ plt.grid(alpha=0)
 <!-- ![AIA](https://github.com/hmddev1/ZM/assets/53661111/17d2dcb3-6816-45c1-b1bd-53ddf39b857e) -->
 
 
-1. Face image: (Face: Hossein Safari)
+2. Face image: (Face: Hossein Safari)
 
 ```python
 import numpy as np
@@ -190,7 +190,7 @@ plt.show()
 <!-- ![HS](https://github.com/hmddev1/ZM/assets/53661111/51055b70-0b3e-453e-83bf-c5f0275fb1d1) -->
 
 
-2. The original and reconstructed image of a spiral galaxy (top row), elliptical galaxy (middle row), and irregular galaxy (bottom row) recorded by the SDSS survey.
+3. The original and reconstructed image of a spiral galaxy (top row), elliptical galaxy (middle row), and irregular galaxy (bottom row) recorded by the SDSS survey.
 
 ```python
 import os
