@@ -76,6 +76,87 @@ You can see some examples of the ZM Code Usage.
 In the following examples, we provide the calculations of Zernike moments for a given image. To validate the calculation, we reconstructed images in different orders of Zernike maximum orders. 
 You can use these example images in the Examples directory. Note: Make a Python file in the ```ZM-main\ZM\Examples``` directory and test the examples with the codes provided below.
 
+1. Sun
+   
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from ZM import zernikeim as zm
+import os
+from astropy.io import fits
+import sunpy.map
+import astropy.units as u
+from astropy.coordinates import SkyCoord
+from matplotlib.patches import ConnectionPatch
+from typing_extensions import AsyncIterator
+
+directory_path = r'/content/drive/MyDrive/ST_Ghaderi/'
+AIA = 'AIA20200530_145745_0171.fits'
+file_path1 = os.path.join(directory_path,AIA)
+aia = sunpy.map.Map(file_path1)
+bottom_left = aia.wcs.pixel_to_world(2555 * u.pixel, 2066 * u.pixel)
+top_right = aia.wcs.pixel_to_world(2613* u.pixel, 2008 * u.pixel)
+fig = plt.figure(figsize=(7, 4.8))
+ax1 = fig.add_subplot(121, projection=aia)
+aia.plot(axes=ax1,annotate=False)
+plt.text(100,3800, '(a)', fontsize=10, fontweight='bold',color='white')
+for coord in ax1.coords:
+    coord.frame.set_linewidth(1)
+    coord.set_ticks_visible(False)
+    coord.set_ticklabel_visible(False)
+aia.draw_grid(axes=ax1, color='black', alpha=0.25, lw=0.5)
+aia.draw_quadrangle(bottom_left, top_right=top_right, edgecolor='black', lw=1)
+aia_sub = aia.submap(bottom_left, top_right=top_right)
+
+left, width = 0.3, 0.2
+bottom, height = 0.55, .2
+rect_box = [left, bottom, width, height]
+ax2 = plt.axes(rect_box,projection=aia_sub)
+aia_sub.plot(axes=ax2, annotate=False)
+for coord in ax2.coords:
+    coord.frame.set_linewidth(2)
+    coord.set_ticks_visible(False)
+    coord.set_ticklabel_visible(False)
+xpix, ypix = aia.wcs.world_to_pixel(SkyCoord(top_right.Tx, top_right.Ty, frame=aia.coordinate_frame))
+con1 = ConnectionPatch((1, 0), (xpix, ypix), 'axes fraction', 'data', axesA=ax2, axesB=ax1, arrowstyle='-', color='black', lw=1)
+xpix, ypix = aia.wcs.world_to_pixel(bottom_left)
+con2 = ConnectionPatch((0, 0), (xpix, ypix), 'axes fraction', 'data', axesA=ax2, axesB=ax1, arrowstyle='-', color='black', lw=1)
+ax2.add_artist(con1)
+ax2.add_artist(con2)
+ax2.grid(alpha=0)
+ax1.grid(alpha=0)
+
+SZ=np.shape(aia_sub.data)
+ZBFSTR=zm.zernike_bf(SZ[0],25,1)
+Z1=zm.zernike_mom(aia_sub.data,ZBFSTR)
+left, width = 0.6, 0.28
+bottom, height = 0.55, .25
+rect_box = [left, bottom, width, height]
+box = plt.axes(rect_box)
+plt.scatter(Z1.real,Z1.imag,facecolor='black',color='tomato')
+plt.text(220000,21000, '(b)', fontsize=10,color='black')
+plt.ylabel('Imaginary',fontsize=10)
+plt.xlabel('Real',fontsize=10)
+plt.tick_params(axis='both', which='major', labelsize=10)
+plt.grid(alpha=0)
+
+left, width = 0.6, 0.28
+bottom, height = 0.18, .25
+rect_box = [left, bottom, width, height]
+box = plt.axes(rect_box)
+box.plot(np.abs(Z1)/np.max(np.abs(Z1)),lw=.9)
+plt.text(320,0.9, '(c)', fontsize=10,color='black')
+plt.xlabel('(p,q)',fontsize=10)
+plt.ylabel('Normalized  $|Z_{pq}|$',fontsize=10)
+plt.tick_params(axis='both', which='major', labelsize=10)
+plt.grid(alpha=0)
+```
+<p align="center">
+<img src="https://github.com/hmddev1/ZM/assets/53661111/17d2dcb3-6816-45c1-b1bd-53ddf39b857e" alt="AIA" width="500">
+</p>
+<!-- ![AIA](https://github.com/hmddev1/ZM/assets/53661111/17d2dcb3-6816-45c1-b1bd-53ddf39b857e) -->
+
+
 1. Face image: (Face: Hossein Safari)
 
 ```python
