@@ -85,12 +85,15 @@ from ZM import zernikeim as zm
 import os
 from astropy.io import fits
 import sunpy.map
+from zipfile import ZipFile
 import astropy.units as u
 from astropy.coordinates import SkyCoord
 from matplotlib.patches import ConnectionPatch
 from typing_extensions import AsyncIterator
 
-directory_path = r'/content/drive/MyDrive/ST_Ghaderi/'
+directory_path = r'path\to\your\direcotry\ZM-main\ZM\Examples'
+with ZipFile('AIA20200530_145745_0171.rar', 'r') as f:
+f.extractall()
 AIA = 'AIA20200530_145745_0171.fits'
 file_path1 = os.path.join(directory_path,AIA)
 aia = sunpy.map.Map(file_path1)
