@@ -91,7 +91,7 @@ from astropy.coordinates import SkyCoord
 from matplotlib.patches import ConnectionPatch
 from typing_extensions import AsyncIterator
 
-directory_path = r'path\to\your\direcotry\ZM-main\ZM\Examples'
+directory_path = r'path\to\your\direcotry\ZM-main\ZM\Data'
 with ZipFile('AIA20200530_145745_0171.rar', 'r') as f:
 f.extractall()
 AIA = 'AIA20200530_145745_0171.fits'
@@ -202,8 +202,8 @@ import matplotlib.pyplot as plt
 from ZM import zernikim as zm
 from astropy.io import fits
 
-directory_path = r'path\to\your\direcotry\ZM-main\ZM\Examples'          # You need to read an example FITS file from the directory: ZM-main\ZM\Examples\
-filename = 'S.fits'          # You can also test the "E.fits" and "I.fits" files
+directory_path = r'path\to\your\direcotry\ZM-main\ZM\Data'          # You need to read an example FITS file from the directory: ZM-main\ZM\Data\
+filename = 'PGC0023498.fits'          # You can also test the "PGC0054488.fits" and "PGC0057771.fits" files
 
 file_path = os.path.join(directory_path, filename)
 hdul = fits.open(file_path)
