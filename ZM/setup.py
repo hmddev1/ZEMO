@@ -13,6 +13,11 @@ setuptools.setup(
     author_email='albert.ghaderi@gmail.com',
     author_email='nasibealipour@gmail.com',
     packages=['ZM'],
+    install_requires=[
+        'math'
+        'numpy'
+        'numpy.linalg'
+ ],
     url='https://github.com/hmddev1/ZM',
     classifiers=[
          "Programming Language :: Python :: 3",
