@@ -22,7 +22,7 @@ The code includes the following functions:
 
 ### Notes
 
-- The zernike_order_list function calculates factorials, p-indices, and q-indices for Zernike polynomials.
+- The zernike_order_list function calculates Zernike polynomials' factorials, p-indices, and q-indices.
 - The robust_fact_quot function removes common elements from lists and calculates product quotients.
 - The zernike_bf function generates Zernike basis functions stored in a complex-valued grid.
 - The zernike_mom function calculates Zernike moments by summing the product of the image and basis functions.
@@ -35,7 +35,7 @@ The code includes the following functions:
 ## Installation 
 
 1. Download the ZM repository.
-2. In the main ZM directory ```(ZM-main\ZM\)``` use the package manager [pip](https://pip.pypa.io/en/stable/) to install ZM package:
+2. In the main ZM directory ```(ZEMO-main\ZEMO\)``` use the package manager [pip](https://pip.pypa.io/en/stable/) to install ```ZEMO``` package:
 
 ```bash
 !pip install .
@@ -45,13 +45,13 @@ or
 py -m pip install .
 ```
 
-Now you can use ZM package in any local directory on your computer.
+Now you can use ZEMO package in any local directory on your computer.
 
 ## Usage
 
-1. In any Python editor (interpreter) import the ZM next to the necessary libraries:
+1. In any Python editor (interpreter) import the ZEMO next to the necessary libraries:
 ```python
-from ZM import zernikim as zm
+from ZEMO import zemo as zm
 ```
 
 2. Generates Zernike basis functions for a given `size`, `order`, and optional `withneg` parameter for a **square images** of size **SZ**.
@@ -74,14 +74,14 @@ You can see some examples of the ZM Code Usage.
 ## Examples
 
 In the following examples, we provide the calculations of Zernike moments for a given image. To validate the calculation, we reconstructed images in different orders of Zernike maximum orders. 
-You can use these example images in the Examples directory. Note: Make a Python file in the ```ZM-main\ZM\Examples``` directory and test the examples with the codes provided below.
+You can use these example images in the Examples directory. Note: Make a Python file in the ```ZEMO-main\ZEMO\Data``` directory and test the examples with the codes provided below.
 
 1. Solar coronal AIA image at 171 Angstrom
    
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
-from ZM import zernikeim as zm
+from ZEMO import zemo as zm
 import os
 from astropy.io import fits
 import sunpy.map
@@ -91,7 +91,7 @@ from astropy.coordinates import SkyCoord
 from matplotlib.patches import ConnectionPatch
 from typing_extensions import AsyncIterator
 
-directory_path = r'path\to\your\direcotry\ZM-main\ZM\Data'
+directory_path = r'path\to\your\direcotry\ZEMO-main\ZEMO\Data'
 with ZipFile('AIA20200530_145745_0171.rar', 'r') as f:
 f.extractall()
 AIA = 'AIA20200530_145745_0171.fits'
@@ -165,7 +165,7 @@ plt.grid(alpha=0)
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
-from ZM import zernikeim as zm
+from ZEMO import zemo as zm
 
 img = plt.imread('HS.png')
 
@@ -199,10 +199,10 @@ plt.show()
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-from ZM import zernikim as zm
+from ZEMO import zemo as zm
 from astropy.io import fits
 
-directory_path = r'path\to\your\direcotry\ZM-main\ZM\Data'          # You need to read an example FITS file from the directory: ZM-main\ZM\Data\
+directory_path = r'path\to\your\direcotry\ZEMO-main\ZEMO\Data'          # You need to read an example FITS file from the directory: ZM-main\ZM\Data\
 filename = 'PGC0023498.fits'          # You can also test the "PGC0054488.fits" and "PGC0057771.fits" files
 
 file_path = os.path.join(directory_path, filename)
