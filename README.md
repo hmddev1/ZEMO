@@ -51,23 +51,23 @@ Now you can use ZEMO package in any local directory on your computer.
 
 1. In any Python editor (interpreter) import the ZEMO next to the necessary libraries:
 ```python
-from ZEMO import zemo as zm
+from ZEMO import zemo
 ```
 
 2. Generates Zernike basis functions for a given `size`, `order`, and optional `withneg` parameter for a **square images** of size **SZ**.
    If withneg is 1, then the basis functions with negative repetition are included.
 ```python
-ZBFSTR = zm.zernike_bf(SZ,order,withneg) 
+ZBFSTR = zemo.zernike_bf(SZ,order,withneg) 
 ```
 
 3. Calculates Zernike moments of an input image (images) using precomputed Zernike basis functions. **I** is the input image.
 ```python
-Z = zm.zernike_mom(I,ZBFSTR)
+Z = zemo.zernike_mom(I,ZBFSTR)
 ```
 
 4. Reconstructs an image from Zernike moments using precomputed Zernike basis functions.
 ```python
-I = zm.zernike_rec(Z,SZ,ZBFSTR)
+I = zemm.zernike_rec(Z,SZ,ZBFSTR)
 ```
 You can see some examples of the ZM Code Usage.
 
@@ -81,7 +81,7 @@ You can use these example images in the Examples directory. Note: Make a Python 
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
-from ZEMO import zemo as zm
+from ZEMO import zemo 
 import os
 from astropy.io import fits
 import sunpy.map
@@ -130,8 +130,8 @@ ax2.grid(alpha=0)
 ax1.grid(alpha=0)
 
 SZ=np.shape(aia_sub.data)
-ZBFSTR=zm.zernike_bf(SZ[0],25,1)
-Z1=zm.zernike_mom(aia_sub.data,ZBFSTR)
+ZBFSTR=zemo.zernike_bf(SZ[0],25,1)
+Z1=zemo.zernike_mom(aia_sub.data,ZBFSTR)
 left, width = 0.6, 0.28
 bottom, height = 0.55, .25
 rect_box = [left, bottom, width, height]
@@ -165,7 +165,7 @@ plt.grid(alpha=0)
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
-from ZEMO import zemo as zm
+from ZEMO import zemo 
 
 img = plt.imread('HS.png')
 
@@ -178,9 +178,9 @@ SZ=np.shape(img)
 Order=[10,45,46]
 
 for i in range(3):
-   ZBFSTR=zm.zernike_bf(SZ[0],Order[i],1)
-   Z=zm.zernike_mom(np.double(img),ZBFSTR)
-   I=zm.zernike_rec(Z,SZ[0],ZBFSTR)
+   ZBFSTR=zemo.zernike_bf(SZ[0],Order[i],1)
+   Z=zemo.zernike_mom(np.double(img),ZBFSTR)
+   I=zemo.zernike_rec(Z,SZ[0],ZBFSTR)
    plt.subplot(1,4,i+2)
    plt.imshow(I,interpolation='nearest',cmap='bone')
    plt.title('$P_{max}$='+ str(Order[i]), fontsize=9)
@@ -199,7 +199,7 @@ plt.show()
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-from ZEMO import zemo as zm
+from ZEMO import zemo
 from astropy.io import fits
 
 directory_path = r'path\to\your\direcotry\ZEMO-main\ZEMO\Data'          # You need to read an example FITS file from the directory: ZM-main\ZM\Data\
@@ -219,9 +219,9 @@ SZ=np.shape(data)
 Order=[10,45,47]
 
 for i in range(3):
-   ZBFSTR=zm.zernike_bf(SZ[0],Order[i],1)
-   Z=zm.zernike_mom(np.double(data),ZBFSTR)
-   I=zm.zernike_rec(Z,SZ[0],ZBFSTR)
+   ZBFSTR=zemo.zernike_bf(SZ[0],Order[i],1)
+   Z=zemo.zernike_mom(np.double(data),ZBFSTR)
+   I=zemo.zernike_rec(Z,SZ[0],ZBFSTR)
    plt.subplot(1,4,i+2)
    plt.imshow(I,interpolation='nearest',cmap='bone')
    plt.title('$P_{max}$='+ str(Order[i]), fontsize=9)
