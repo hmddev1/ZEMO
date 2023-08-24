@@ -67,7 +67,7 @@ Z = zemo.zernike_mom(I,ZBFSTR)
 
 4. Reconstructs an image from Zernike moments using precomputed Zernike basis functions.
 ```python
-I = zemm.zernike_rec(Z,SZ,ZBFSTR)
+I = zemo.zernike_rec(Z,SZ,ZBFSTR)
 ```
 You can see some examples of the ZM Code Usage.
 
