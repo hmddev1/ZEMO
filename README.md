@@ -34,11 +34,11 @@ The code includes the following functions:
 
 ## Installation 
 
-1. Download the ZM repository.
-2. In the main ZM directory ```(ZEMO-main\ZEMO\)``` use the package manager [pip](https://pip.pypa.io/en/stable/) to install ```ZEMO``` package:
+1. Download the ZEMO repository.
+2. In the main ZEMO directory ```(ZEMO-main\ZEMO\)``` use the package manager [pip](https://pip.pypa.io/en/stable/) to install ```ZEMO``` package:
 
 ```bash
-!pip install .
+pip install .
 ```
 or
 ```bash
