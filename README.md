@@ -45,7 +45,7 @@ or
 py -m pip install .
 ```
 
-Now you can use ZEMO package in any local directory on your computer.
+Now you can use the ZEMO package in any local directory on your computer.
 
 ## Usage
 
@@ -65,7 +65,7 @@ ZBFSTR = zemo.zernike_bf(SZ,order,withneg)
 Z = zemo.zernike_mom(I,ZBFSTR)
 ```
 
-4. Reconstructs an image from Zernike moments using precomputed Zernike basis functions.
+4. Reconstruct an image from Zernike moments using precomputed Zernike basis functions.
 ```python
 I = zemo.zernike_rec(Z,SZ,ZBFSTR)
 ```
